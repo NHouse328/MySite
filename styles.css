@@ -1,0 +1,52 @@
+body {
+  background-color: black;
+  color: aliceblue;
+}
+
+.menu {
+  float: left;
+  width: 10%;
+  text-align: center;
+}
+
+.menu a {
+  margin-top: 5%;
+  display: block;
+  width: 100%;
+  color: black;
+}
+
+.main {
+  float: left;
+  width: 70%;
+}
+
+.right {
+  float: right;
+  width: 20%;
+  text-align: center;
+}
+
+.right img{
+  max-width:100%;
+  height:auto;
+}
+
+@media only screen and (max-width: 620px) {
+  /* For mobile phones: */
+  .menu, .main, .right {
+    width: 100%;
+  }
+  .menu {
+    text-align: left;
+  }
+  .menu a {
+    display: inline;
+  }
+}
+
+footer {
+  background-color: #777;
+  padding: 1px;
+  text-align: center;
+}
