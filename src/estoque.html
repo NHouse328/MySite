@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title>Gabriel Casanova</title>
+    <link rel="icon" type="image/x-icon" href="../image/icon.ico">
+    <link rel="stylesheet" href="../styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <style>
+        #items-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .item {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: row;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: calc(50% - 10px); /* Três itens por linha, ajustável conforme necessário */
+            box-sizing: border-box;
+        }
+        .item img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+        .item-details {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .item-title {
+            font-size: 24px;
+            margin: 0;
+            text-align: center;
+        }
+        .item-description {
+            font-size: 16px;
+            color: #555;
+            text-align: left;
+        }
+
+        /* Media Query para telas menores */
+        @media (max-width: 768px) {
+            .item {
+                width: 100%; /* Dois itens por linha em telas médias */
+            }
+        }
+
+        /* Estilo para o formulário */
+        .form-container {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .form-container input,
+        .form-container textarea {
+            width: 97%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-container button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header style="background-color: #555;padding:1%;text-align: center;">
+        <h1>Blog do Gabriel</h1>
+    </header>
+
+    <div style="overflow:auto">
+        <div class="menu">
+            <a href="../index.html" title="Home">
+                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px"
+                    fill="#e8eaed">
+                    <path
+                        d="M234-194h165v-210q0-11.98 7.76-19.74 7.76-7.76 19.74-7.76h108q10.82 0 18.66 7.76T561-404v210h165v-353.67q0-8-3.5-14.5t-9.5-11.5L499-735q-8-6-19-6t-19 6L247-573.67q-6 5-9.5 11.5t-3.5 14.5V-194Zm-22 0v-353q0-13.69 5.03-24.5T234-590l214-163q13.76-11 31.88-11Q498-764 512-753l214 163q11.94 7.69 16.97 18.5Q748-560.69 748-547v353q0 8.52-6.74 15.26Q734.53-172 726-172H566.5q-11.97 0-19.74-7.76-7.76-7.76-7.76-19.74v-210H421v210q0 11.98-7.81 19.74-7.8 7.76-18.58 7.76H233.56q-8.02 0-14.79-6.74T212-194Zm268-275Z" />
+                </svg>
+            </a>
+            <a href="livros.html" title="Livros">
+                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px"
+                    fill="#e8eaed">
+                    <path
+                        d="M234-285q13-14.5 30.66-21.75Q282.33-314 303.5-314H340v-492.5h-16.5q-38.21 0-63.85 25.65Q234-755.21 234-716.67V-285Zm128-29h364v-460.5q0-13.5-9-22.75t-23-9.25H362V-314Zm-128 29v-501.5V-285Zm69.5 153q-38.5 0-65-26.56T212-223.73v-493.04q0-46.09 32.76-78.91 32.76-32.82 78.74-32.82H694q21.75 0 37.88 16.12Q748-796.25 748-774.5v465q0 6.76-3.25 11.88-3.25 5.12-6.25 4.12-25.5 5.5-41 24.65T682-224.19q0 24.92 14.93 44.64Q711.87-159.82 737-153q5.93.28 8.47 4.14Q748-145 748-140.5v-3q0 5.65-3.21 8.57-3.22 2.93-7.29 2.93h-434Zm-.33-22H689.5q-14-13-21.75-31.11T660-223.5q0-19.46 7.5-37.48Q675-279 689.5-292H303.18q-29.68 0-49.43 19.73T234-223.23q0 29.73 19.75 49.48Q273.5-154 303.17-154Z" />
+                </svg>
+            </a>
+            <a href="bicicleta.html" title="Ciclismo">
+                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px"
+                    fill="#e8eaed">
+                    <path
+                        d="M218.54-112q-69.7 0-118.12-48.89T52-279.14Q52-348.5 100.65-397t117.67-48.5q69.68 0 118.43 48.88t48.75 118.09q0 69.62-48.84 118.08Q287.83-112 218.54-112Zm.28-22q60.39 0 102.53-42.01 42.15-42.01 42.15-102.81 0-60.39-41.78-102.53-41.78-42.15-102.75-42.15T116-381.72q-42 41.78-42 102.75T116.01-176q42.01 42 102.81 42ZM530-679.5 399.5-548l77 80.5q6.5 8.66 10.75 18.01 4.25 9.36 4.25 18.99v191q0 5.18-3.23 8.34t-8.5 3.16q-5.27 0-7.77-3.16t-2.5-8.34v-185.03L325.5-530q-8-5.87-12-14.93-4-9.05-4-19.79 0-10.31 4.5-19.05 4.5-8.73 11.5-15.32l120-120.87q7.58-7.04 17.82-11.54 10.23-4.5 21.96-4.5 11.72 0 21.72 4.75 10 4.75 18.5 10.75l75.73 77.23q27.44 27.59 59.72 44.63 32.28 17.03 70.44 21.47 3.63.75 6.87 4.96t3.15 8.99q-.1 4.79-4 8-3.91 3.22-9.41 1.72-42.27-4.92-79.14-23.96Q612-596.5 582.5-627.5l-52.5-52Zm69.83-70.5q-21.59 0-36.46-14.83-14.87-14.82-14.87-36.88 0-22.05 14.7-37.17Q577.9-854 600.17-854q20.59 0 36.46 14.83 15.87 14.82 15.87 36.88 0 22.05-15.73 37.17Q621.04-750 599.83-750Zm142.42 638q-70.34 0-118.54-48.89-48.21-48.89-48.21-118.25T623.82-397q48.32-48.5 118.46-48.5 69.01 0 117.37 48.88Q908-347.74 908-278.75q0 69.41-48.48 118.08T742.25-112Zm-.34-22q60.51 0 102.3-42.01T886-278.82q0-60.39-41.84-102.53-41.84-42.15-102.45-42.15-60.83 0-102.52 41.78T597.5-278.97q0 60.97 41.75 102.97 41.74 42 102.66 42Z" />
+                </svg>
+            </a>
+            <a href="palavras.html" title="Palavras">
+                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px"
+                    fill="#e8eaed">
+                    <path
+                        d="M410.39-376q-5.49 0-9.69-4.2-4.2-4.2-4.2-9.67v-181.76q0-4.07 4.2-8.22t9.69-4.15H540.5q11.6 0 18.8 7.35 7.2 7.35 7.2 18.65v55.95q0 7.7-4.03 13.88-4.02 6.17-11.97 8.17 6.65 3 11.33 8.67 4.67 5.68 4.67 13.38V-402q0 11.3-7.2 18.65-7.2 7.35-18.8 7.35H410.39Zm10.11-116.5h122V-560h-122v67.5Zm0 92.5h122v-68.5h-122v68.5Zm-270.19 24q-6.21 0-9.26-3.18-3.05-3.19-3.05-9.32V-558q0-11.3 7.71-18.65 7.71-7.35 18.54-7.35H282q12.6 0 19.3 7.35Q308-569.3 308-558v170.5q0 5.13-3.24 8.32-3.23 3.18-8.45 3.18-6.21 0-9.26-3.18-3.05-3.19-3.05-9.32V-451H162v63.5q0 5.13-3.24 8.32-3.23 3.18-8.45 3.18ZM162-476h122v-84H162v84Zm516.5 100q-12.6 0-19.3-7.35-6.7-7.35-6.7-18.65v-156q0-11.3 6.7-18.65 6.7-7.35 19.3-7.35h118q10.3 0 18.15 7.35 7.85 7.35 7.85 18.65v38q0 4.63-3.74 7.57-3.73 2.93-8.95 2.93-5.21 0-8.26-3.18-3.05-3.19-3.05-8.32v-39h-122v160h122v-39q0-5.13 3.24-8.82 3.23-3.68 8.45-3.68 5.21 0 8.76 3.68 3.55 3.69 3.55 9.04v36.8q0 11.13-7.85 18.56Q806.8-376 796.5-376h-118Z" />
+                </svg>
+            </a>
+            <a href="camp.html" title="Acampamento">
+                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px"
+                    fill="#e8eaed">
+                    <path
+                        d="M132.5-133v-98q0-9 2.25-17.75t8.75-14.75L467-700l-30-40.5q-2.5-1.5-2.5-3.5v-3.75q0-1.75 1.75-3.75t3.25-4.5q3.5-3 7.75-1.5t6.75 4l26 35.5 26-35.5q3-2.5 7.5-3.75t9 1.25q2.5 3.5 3.25 8.25T524-740.5L494-700l323.5 436.5q5.5 6 8.25 14.75T828.5-231v98q0 12.5-7.5 19.5t-20 7H159q-12.5 0-19.5-7t-7-19.5ZM480-681 154.5-242v113.5h141l164-228.5q7.5-11 20.5-11t21.5 11l165 228.5h140V-242L480-681ZM322.5-128.5h316L480-349.5l-157.5 221Zm181-228.5 163 228.5-165-228.5q-8.5-11-21.5-11t-20.5 11l-164 228.5 164-228.5q7.5-11 21-11t23 11Z" />
+                </svg>
+            </a>
+            <a href="roupas.html" title="Roupas">
+                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px"
+                    fill="#e8eaed">
+                    <path
+                        d="m295-623-88 49q-9.76 6-20.51 3.39Q175.75-573.23 171-584l-36.82-63.02q-6.18-11.21-2.93-20.34 3.25-9.14 13.01-14.7L321.22-788h39.46q13.42 0 20.93 7.27 7.51 7.26 7.51 20.06v2.34q0 38.55 26.26 64.94T480-667q38.36 0 65.12-26.39 26.76-26.39 26.76-64.94v-2.34q0-12.8 7.23-20.06 7.24-7.27 20.18-7.27h39.27l178.33 106.06q9.61 5.44 12.36 14.6T826-646.89l-37.27 62.53q-4.83 10.86-16.53 14.11-11.7 3.25-20.2-3.25l-88-51V-200q0 12-8 20t-19.29 8H322.29Q311-172 303-180t-8-20v-423Zm22-38v467h325v-467l126 70 41-70.82L634-766h-39q3.5 50-30.89 85.5T479.86-645q-49.86 0-83.61-35.5T365-766h-38L151-661.82 192-591l125-70Zm163 181Z" />
+                </svg>
+            </a>
+        </div>
+
+        <div class="main">
+            <h2 style="text-align: center;">ESTOQUE</h2>
+            
+            <!-- Formulário de upload -->
+            <div class="form-container">
+                <h3>Adicionar Novo Item</h3>
+                <form id="upload-form">
+                    <input type="text" id="item-name" placeholder="Título do item" required>
+                    <textarea id="item-description" placeholder="Descrição do item" required></textarea>
+                    <input type="file" id="item-image" accept="image/*" required>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+
+            <div id="items-container"></div>
+        </div>
+
+        <div class="right" style="background-color: #ddd;">
+            <p>Teste</p>
+        </div>
+    </div>
+
+    <footer style="margin-top: 20px;">
+        <p>© 2024 Feito por: Gabriel Casanova Silva</p>
+    </footer>
+
+    <script>
+        async function fetchItems() {
+            const itemsResponse = await fetch('http://127.0.0.1:5001/api/items');
+            const items = await itemsResponse.json();
+
+            const container = document.getElementById('items-container');
+            container.innerHTML = ''; // Limpa o container
+
+            for (const item of items) {
+                const imageResponse = await fetch(`http://127.0.0.1:5000/images/${item.image}`);
+                
+                // Verifica se a imagem foi encontrada
+                if (imageResponse.status === 404) {
+                    console.error(`Imagem não encontrada para o item: ${item.image}`);
+                    continue;
+                }
+
+                const imgElement = document.createElement('img');
+                imgElement.src = `http://127.0.0.1:5000/images/${item.image}`;
+
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('item');
+
+                const detailsElement = document.createElement('div');
+                detailsElement.classList.add('item-details');
+
+                const titleElement = document.createElement('h2');
+                titleElement.classList.add('item-title');
+                titleElement.textContent = item.nome;
+
+                const descriptionElement = document.createElement('p');
+                descriptionElement.classList.add('item-description');
+                descriptionElement.textContent = item.descricao;
+
+                detailsElement.appendChild(titleElement);
+                detailsElement.appendChild(descriptionElement);
+
+                itemElement.appendChild(imgElement);
+                itemElement.appendChild(detailsElement);
+
+                container.appendChild(itemElement);
+            }
+        }
+
+        fetchItems();
+    </script>
+
+<!-- <script>
+    // Função para criar um item na página
+    function createItemElement(item) {
+        const itemElement = document.createElement('div');
+        itemElement.className = 'item';
+
+        itemElement.innerHTML = `
+            <img src="${item.image}" alt="${item.title}">
+            <div class="item-details">
+                <h3 class="item-title">${item.title}</h3>
+                <p class="item-description">${item.description}</p>
+            </div>
+        `;
+
+        return itemElement;
+    }
+
+    // Função para carregar os itens
+    async function loadItems() {
+        const response = await fetch('http://127.0.0.1:5001/api/items');
+        const items = await response.json();
+        const itemsContainer = document.getElementById('items-container');
+
+        itemsContainer.innerHTML = ''; // Limpa os itens antigos
+
+        items.forEach(item => {
+            itemsContainer.appendChild(createItemElement(item));
+        });
+    }
+
+    // Carregar itens quando a página carrega
+    document.addEventListener('DOMContentLoaded', loadItems);
+
+    // Manipular o envio do formulário
+    document.getElementById('add-item-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const title = document.getElementById('title').value;
+        const description = document.getElementById('description').value;
+        const imageUrl = document.getElementById('image-url').value;
+
+        const newItem = { title, description, image: imageUrl };
+
+        // Envia o item para a API
+        const response = await fetch('URL_DA_SUA_API_PARA_ADICIONAR_ITEM', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newItem),
+        });
+
+        if (response.ok) {
+            // Adiciona o novo item na lista
+            document.getElementById('items-container').appendChild(createItemElement(newItem));
+
+            // Limpa o formulário
+            document.getElementById('add-item-form').reset();
+        } else {
+            alert('Falha ao adicionar item.');
+        }
+    });
+</script> -->
+</body>
+
+</html>
